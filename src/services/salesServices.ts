@@ -1,8 +1,10 @@
-import salesData from "@/data/sales.json";
+import { getOrderData } from "@/services/orderServices";
+import { buildSalesData } from "@/utils/sales";
 import type { SalesData } from "@/types/sales.types";
 
 export async function getSalesData(): Promise<SalesData[]> {
-  return salesData as SalesData[];
+  const orders = await getOrderData();
+  return buildSalesData(orders);
 }
 
 // Funzione per quando collegheremo un vero backend

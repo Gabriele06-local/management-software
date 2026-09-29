@@ -1,8 +1,10 @@
-import kpiData from "@/data/kpi.json";
+import { getOrderData } from "@/services/orderServices";
+import { buildKpiData } from "@/utils/kpi";
 import type { KpiData } from "@/types/kpi.types";
 
 export async function getKpiData(): Promise<KpiData[]> {
-  return kpiData as KpiData[];
+  const orders = await getOrderData();
+  return buildKpiData(orders);
 }
 
 // Funzione per quando collegheremo un vero backend
