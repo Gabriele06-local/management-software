@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { LayoutDashboard, ShoppingCart, Package, Users } from "lucide-react";
 
-const navItems = [
+export const navItems = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard },
   { to: "/customers", label: "Customers", icon: Users },
   { to: "/orders", label: "Orders", icon: ShoppingCart },
@@ -11,7 +11,7 @@ const navItems = [
 export function Sidebar() {
   return (
     <>
-      <aside className="w-64 h-screen border-r bg-background flex flex-col p-4">
+      <aside className="hidden w-64 h-screen border-r bg-background md:flex flex-col p-4">
         <div className="text-xl font-bold px-2 py-4">Ecommerce Admin</div>
         <nav className="flex flex-col gap-1">
           {navItems.map(({ to, label, icon: Icon }) => (
