@@ -33,7 +33,7 @@ export function OrdersFilters({
   onDateRangeChange,
 }: OrdersFiltersProps) {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex flex-wrap items-center gap-3 min-w-0">
       <Select
         value={status}
         onValueChange={(value) => onStatusChange(value ?? "all")}

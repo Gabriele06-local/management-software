@@ -36,7 +36,7 @@ export default function Orders() {
 
   return (
     <>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-6 min-w-0">
         <h1 className="text-2xl font-bold">Orders</h1>
         <OrdersFilters
           status={statusFilter}
