@@ -69,3 +69,18 @@ export function filterOrders(
       isOrderInDateRange(order, filters.dateRange),
   );
 }
+
+/**
+ * The N most recent orders for the dashboard widget.
+ *
+ * Sorted by date descending, so the widget does not depend on the order of the
+ * source data, and returns at most `limit` rows.
+ */
+export function buildRecentOrders(
+  orders: OrderData[],
+  limit: number,
+): OrderData[] {
+  return [...orders]
+    .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
+    .slice(0, limit);
+}
